@@ -29,3 +29,4 @@ def send_the_answer(message) -> None:
 
 
 
+bot.polling()
