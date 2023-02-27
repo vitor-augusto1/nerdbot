@@ -23,3 +23,17 @@ def make_a_question(user_question: str) -> str:
     json_object_response = json.loads(str(response))
     AI_answer = json_object_response["choices"][0]["text"]
     return AI_answer
+
+def choose_an_alternative(alternatives: str) -> str:
+    response = openai.Completion.create(
+      model="text-davinci-003",
+      prompt=alternatives.strip(),
+      temperature=0.2,
+      max_tokens=3000,
+      top_p=1,
+      frequency_penalty=0.2,
+      presence_penalty=0
+    )
+    json_object_response = json.loads(str(response))
+    AI_answer = json_object_response["choices"][0]["text"]
+    return AI_answer
