@@ -13,3 +13,12 @@ def start_message(message) -> None:
     CHAT_ID = message.chat.id
     bot.send_message(CHAT_ID, "Hello, world!")
 
+@bot.message_handler(commands=['question'])
+def answer_user_question(message):
+    CHAT_ID = message.chat.id
+    message_to_user = (
+        "Escreva a sua pergunta por favor."
+    )
+    user_question = bot.send_message(CHAT_ID, message_to_user)
+    bot.register_next_step_handler(user_question, send_the_answer)
+
