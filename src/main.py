@@ -12,7 +12,7 @@ bot = telebot.TeleBot(str(TELEGRAM_API_KEY))
 def start_message(message) -> None:
     CHAT_ID = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-    keyboard.row('/question')
+    keyboard.row('/question', '/alter')
     user_guide_message = (
         f'Bem vindo ao NerdBot ! \n'
         f'Escreva ou aperte um dos botões que aparecem no seu teclado.'
