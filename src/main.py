@@ -22,3 +22,10 @@ def answer_user_question(message):
     user_question = bot.send_message(CHAT_ID, message_to_user)
     bot.register_next_step_handler(user_question, send_the_answer)
 
+def send_the_answer(message) -> None:
+    CHAT_ID = message.chat.id
+    ai_answer = make_a_question(message.text)
+    bot.send_message(CHAT_ID, ai_answer)
+
+
+
