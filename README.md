@@ -8,14 +8,20 @@ It can be used in any case and context, but it was primarily created with studen
 No installation necessary, simply type in [@nerd_botBot](https://t.me/nerd_botBot)
 into the Telegram application on your device and you're good to go!
 
-## Usage 
+## Usage
 
 Start the conversation with [@nerd_botBot](https://t.me/nerd_botBot) and it will present all available
 options to the user. Currently, there are two commands available:
-`/question` and `/alter`. 
+`/question` and `/alter`.
 
 - `/question` for general questions
 - `/alter` for multiple-choice questions
+
+## Built with
+
+* [python](https://www.python.org/)
+* [telebot](https://pypi.org/project/pyTelegramBotAPI/)
+* [openAI](https://openai.com/)
 
 ## License & Copyright  
 
