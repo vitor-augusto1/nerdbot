@@ -8,6 +8,7 @@ load_dotenv()
 TELEGRAM_API_KEY = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(str(TELEGRAM_API_KEY))
 
+
 @bot.message_handler(commands=['start'])
 def start_message(message) -> None:
     CHAT_ID = message.chat.id
@@ -35,7 +36,7 @@ def show_user_guide(message) -> None:
 def answer_user_question(message):
     CHAT_ID = message.chat.id
     message_to_user = (
-        "Escreva a sua pergunta por favor."
+        "Me mande a sua pergunta."
     )
     user_question = bot.send_message(CHAT_ID, message_to_user)
     bot.register_next_step_handler(user_question, send_the_answer)
