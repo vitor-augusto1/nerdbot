@@ -35,5 +35,19 @@ def send_the_answer(message) -> None:
     bot.send_message(CHAT_ID, ai_answer)
 
 
+@bot.message_handler(commands=['alter'])
+def choose_alternative(message) -> None:
+    CHAT_ID = message.chat.id
+    message_to_user = (
+        "Me mande as perguntas com as alternativas."
+    )
+    user_question = bot.send_message(CHAT_ID, message_to_user)
+    bot.register_next_step_handler(user_question, send_the_alternative)
+
+def send_the_alternative(message) -> None:
+    CHAT_ID = message.chat.id
+    ai_answer = choose_an_alternative(message.text)
+    bot.send_message(CHAT_ID, ai_answer)
+
 
 bot.polling()
