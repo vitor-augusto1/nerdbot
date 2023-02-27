@@ -1,9 +1,9 @@
 import json
 import openai
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 
-load_dotenv()
+#load_dotenv()
 
 openai.api_key = os.getenv('TELEGRAM_API_KEY')
 
@@ -31,7 +31,6 @@ def make_a_question(user_question: str) -> str:
         return AI_answer
     except openai.error.RateLimitError as e:
         return "Erro ao gerar resposta. Tente novamente."
-
 
 
 def choose_an_alternative(alternatives: str) -> str:
