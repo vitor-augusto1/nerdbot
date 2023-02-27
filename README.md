@@ -1,5 +1,7 @@
 # NerdBot
 
+![nerd_bot](https://user-images.githubusercontent.com/121441594/221677322-9e1eab9f-3d32-4e9f-9a15-44a20b8051ae.png)
+
 NerdBot is a telegram bot that is designed to help answer questions using AI!
 It can be used in any case and context, but it was primarily created with students in mind. 
 
