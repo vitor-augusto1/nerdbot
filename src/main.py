@@ -31,23 +31,7 @@ def show_user_guide(message) -> None:
     bot.send_message(CHAT_ID, user_guide_message)
 
 
-
 @bot.message_handler(commands=['question'])
-def answer_user_question(message):
-    CHAT_ID = message.chat.id
-    message_to_user = (
-        "Me mande a sua pergunta."
-    )
-    user_question = bot.send_message(CHAT_ID, message_to_user)
-    bot.register_next_step_handler(user_question, send_the_answer)
-
-def send_the_answer(message) -> None:
-    CHAT_ID = message.chat.id
-    ai_answer = make_a_question(message.text)
-    bot.send_message(CHAT_ID, ai_answer)
-
-
-@bot.message_handler(commands=['alter'])
 def choose_alternative(message) -> None:
     CHAT_ID = message.chat.id
     message_to_user = (
