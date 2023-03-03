@@ -43,7 +43,7 @@ def answer_a_question(message) -> None:
 
 def send_the_alternative(message) -> None:
     CHAT_ID = message.chat.id
-    ai_answer = choose_an_alternative(message.text)
+    ai_answer = answer_user_question(message.text)
     bot.send_message(CHAT_ID, ai_answer)
 
 
