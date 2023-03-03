@@ -47,4 +47,4 @@ def send_the_alternative(message) -> None:
     bot.send_message(CHAT_ID, ai_answer)
 
 
-bot.polling()
+bot.infinity_polling()
