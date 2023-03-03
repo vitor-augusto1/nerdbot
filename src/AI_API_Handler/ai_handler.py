@@ -7,7 +7,7 @@ load_dotenv()
 
 openai.api_key = os.getenv('TELEGRAM_API_KEY')
 
-def choose_an_alternative(alternatives: str) -> str:
+def answer_user_question(alternatives: str) -> str:
     try:
         response = openai.Completion.create(
           model="text-davinci-003",
