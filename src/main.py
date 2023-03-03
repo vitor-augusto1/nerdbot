@@ -1,7 +1,7 @@
 import telebot
 import os
 from dotenv import load_dotenv
-from AI_API_Handler.ai_handler import choose_an_alternative, summarize_text
+from AI_API_Handler.ai_handler import answer_user_question, summarize_text
 
 load_dotenv()
 
