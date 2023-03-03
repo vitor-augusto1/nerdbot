@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from AI_API_Handler.ai_handler import choose_an_alternative
 
-#load_dotenv()
+load_dotenv()
 
 TELEGRAM_API_KEY = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(str(TELEGRAM_API_KEY))
