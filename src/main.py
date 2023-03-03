@@ -36,7 +36,7 @@ def show_user_guide(message) -> None:
 def choose_alternative(message) -> None:
     CHAT_ID = message.chat.id
     message_to_user = (
-        "Me mande as perguntas com as alternativas."
+        "Me mande a sua pergunta."
     )
     user_question = bot.send_message(CHAT_ID, message_to_user)
     bot.register_next_step_handler(user_question, send_the_alternative)
