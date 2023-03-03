@@ -26,8 +26,7 @@ def start_message(message) -> None:
 def show_user_guide(message) -> None:
     CHAT_ID = message.chat.id
     user_guide_message = (
-        f'/question : Responde pergunta feita pelo usuário.\n'
-        f'/alter : Responde pergunta de multipla escolha'
+        f'/question : Responde pergunta feita pelo usuário.'
     )
     bot.send_message(CHAT_ID, user_guide_message)
 
