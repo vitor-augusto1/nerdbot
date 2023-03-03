@@ -33,7 +33,7 @@ def show_user_guide(message) -> None:
 
 
 @bot.message_handler(commands=['question'])
-def choose_alternative(message) -> None:
+def answer_a_question(message) -> None:
     CHAT_ID = message.chat.id
     message_to_user = (
         "Me mande a sua pergunta."
