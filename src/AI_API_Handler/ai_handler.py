@@ -5,10 +5,19 @@ from dataclasses import dataclass
 import os
 
 load_dotenv()
-
 openai.api_key = os.getenv('TELEGRAM_API_KEY')
 
-def answer_user_question(alternatives: str) -> str:
+
+@dataclass
+class OpenAiRequestHeaders:
+    model: str
+    prompt: str
+    temperature: float
+    max_tokens: int
+    top_p: float
+    frequency_penalty: float
+    presence_penalty: int
+
     try:
         response = openai.Completion.create(
           model="text-davinci-003",
