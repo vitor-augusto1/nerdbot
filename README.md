@@ -14,10 +14,10 @@ into the Telegram application on your device and you're good to go!
 
 Start the conversation with [@nerd_botBot](https://t.me/nerd_botBot) and it will present all available
 options to the user. Currently, there are two commands available:
-`/question` and `/alter`.
+`/question` and `/summary`.
 
 - `/question` for general questions
-- `/alter` for multiple-choice questions
+- `/summary` summarize big texts
 
 ## Built with
 
