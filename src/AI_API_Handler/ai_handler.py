@@ -18,27 +18,20 @@ class OpenAiRequestHeaders:
     frequency_penalty: float
     presence_penalty: int
 
+def return_ai_response(open_ai_headers: OpenAiRequestHeaders) -> str:
+    """Return openAI api response or error message."""
     try:
-        response = openai.Completion.create(
-          model="text-davinci-003",
-          prompt=alternatives.strip(),
-          temperature=0.2,
-          max_tokens=3000,
-          top_p=1,
-          frequency_penalty=0.2,
-          presence_penalty=0
-        )
-        print(response)
+        response = openai.Completion.create(**vars(open_ai_headers))
         json_object_response = json.loads(str(response))
         AI_answer = json_object_response["choices"][0]["text"]
         empty_string = ""
-        if AI_answer == empty_string or AI_answer == " ":
+        if AI_answer == empty_string  or AI_answer == " ":
             error_message = (
-                f"Não foi possivel escolher uma alternativa. Tente novamente!"
+                f"Não foi possivel gerar uma resposta. Tente novamente!"
             )
             return error_message
         return AI_answer
-    except openai.error.RateLimitError as e:
+    except openai.error.RateLimitError as error:
         return "Erro ao gerar resposta. Tente novamente."
 
 
