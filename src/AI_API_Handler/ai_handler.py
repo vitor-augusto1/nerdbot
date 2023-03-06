@@ -42,6 +42,21 @@ class OpenAiRequestHeaders:
         return "Erro ao gerar resposta. Tente novamente."
 
 
+def answer_user_question(alternatives: str) -> str:
+    """Return ai answer."""
+    headers = OpenAiRequestHeaders(
+      model="text-davinci-003",
+      prompt=alternatives.strip(),
+      temperature=0.2,
+      max_tokens=3000,
+      top_p=1,
+      frequency_penalty=0.2,
+      presence_penalty=0
+    )
+    response = return_ai_response(headers)
+    return response
+
+
 def summarize_text(text: str) -> str:
     try:
         response = openai.Completion.create(
