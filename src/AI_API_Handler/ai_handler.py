@@ -58,24 +58,15 @@ def answer_user_question(alternatives: str) -> str:
 
 
 def summarize_text(text: str) -> str:
-    try:
-        response = openai.Completion.create(
-          model="text-davinci-003",
-          prompt=f"{text}.\n\nTl;dr",
-          temperature=0.7,
-          max_tokens=60,
-          top_p=1.0,
-          frequency_penalty=0.0,
-          presence_penalty=1
-        )
-        json_object_response = json.loads(str(response))
-        AI_answer = json_object_response["choices"][0]["text"]
-        empty_string = ""
-        if AI_answer == empty_string or AI_answer == " ":
-            error_message = (
-                f"Não foi possivel escolher uma alternativa. Tente novamente!"
-            )
-            return error_message
-        return AI_answer
-    except openai.error.RateLimitError as e:
-        return "Erro ao gerar resposta. Tente novamente."
+    """Return ai answer."""
+    headers = OpenAiRequestHeaders(
+      model="text-davinci-003",
+      prompt=f"{text}.\n\nTl;dr",
+      temperature=0.7,
+      max_tokens=170,
+      top_p=1.0,
+      frequency_penalty=0.0,
+      presence_penalty=1
+    )
+    response = return_ai_response(headers)
+    return response
