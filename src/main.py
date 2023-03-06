@@ -11,6 +11,7 @@ bot = telebot.TeleBot(str(TELEGRAM_API_KEY))
 
 @bot.message_handler(commands=['start'])
 def start_message(message) -> None:
+    """Welcome the user and show user guide."""
     CHAT_ID = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
                                                  one_time_keyboard=False)
@@ -24,6 +25,7 @@ def start_message(message) -> None:
 
 @bot.message_handler(commands=['helper'])
 def show_user_guide(message) -> None:
+    """Show user guide."""
     CHAT_ID = message.chat.id
     user_guide_message = (
         f'/question : Responde pergunta feita pelo usuário.\n'
@@ -34,6 +36,7 @@ def show_user_guide(message) -> None:
 
 @bot.message_handler(commands=['question'])
 def answer_a_question(message) -> None:
+    """Ask the user for a question."""
     CHAT_ID = message.chat.id
     message_to_user = (
         "Me mande a sua pergunta."
@@ -42,6 +45,7 @@ def answer_a_question(message) -> None:
     bot.register_next_step_handler(user_question, send_the_alternative)
 
 def send_the_alternative(message) -> None:
+    """Answer the user question."""
     CHAT_ID = message.chat.id
     ai_answer = answer_user_question(message.text)
     bot.send_message(CHAT_ID, ai_answer)
@@ -49,6 +53,7 @@ def send_the_alternative(message) -> None:
 
 @bot.message_handler(commands=['summary'])
 def summarize_user_text(message) -> None:
+    """Ask the user for a text to be summarized."""
     CHAT_ID = message.chat.id
     message_to_user = (
         f"Me envie o texto para ser resumido."
@@ -57,6 +62,7 @@ def summarize_user_text(message) -> None:
     bot.register_next_step_handler(user_text, return_summary)
 
 def return_summary(message):
+    """Send the summarized text to the user."""
     CHAT_ID = message.chat.id
     ai_answer = summarize_text(message.text)
     bot.send_message(CHAT_ID, ai_answer)
